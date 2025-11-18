@@ -1,0 +1,229 @@
+{
+  "description": "A customizable date picker component used to create date inputs. Adheres to WCAG 2.2 standards.",
+  "properties": [
+    {
+      "name": "bordered",
+      "type": "boolean",
+      "description": "Indicates that the input should have a border.",
+      "default": "true",
+      "mutable": false,
+      "end_line": 77
+    },
+    {
+      "name": "customClass",
+      "type": "string",
+      "description": "Custom CSS class to apply to the input.",
+      "default": "''",
+      "mutable": false,
+      "end_line": 80
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Whether the form control is disabled.",
+      "default": "false",
+      "mutable": false,
+      "end_line": 83
+    },
+    {
+      "name": "feedback",
+      "type": "IInputFeedbackProp",
+      "description": "Feedback to render below the input.",
+      "default": null,
+      "mutable": false,
+      "end_line": 86
+    },
+    {
+      "name": "inputId",
+      "type": "string",
+      "description": "The ID of the input element.",
+      "default": null,
+      "mutable": false,
+      "end_line": 89
+    },
+    {
+      "name": "inputTabIndex",
+      "type": "number",
+      "description": "Determine the control's relative ordering for sequential focus navigation (typically with the Tab key).",
+      "default": null,
+      "mutable": false,
+      "end_line": 92
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "description": "The text to display within the label.",
+      "default": null,
+      "mutable": false,
+      "end_line": 95
+    },
+    {
+      "name": "max",
+      "type": "string",
+      "description": "Maximum date value.",
+      "default": null,
+      "mutable": false,
+      "end_line": 98
+    },
+    {
+      "name": "min",
+      "type": "string",
+      "description": "Minimum date value.",
+      "default": null,
+      "mutable": false,
+      "end_line": 101
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Name of the form control. Submitted with the form as part of a name/value pair.",
+      "default": null,
+      "mutable": false,
+      "end_line": 104
+    },
+    {
+      "name": "readOnly",
+      "type": "boolean",
+      "description": "Whether the value is editable.",
+      "default": "false",
+      "mutable": false,
+      "end_line": 107
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "description": "A value is required or must be checked for the form to be submittable.",
+      "default": "false",
+      "mutable": false,
+      "end_line": 110
+    },
+    {
+      "name": "size",
+      "type": "ModusSize",
+      "description": "The size of the input.",
+      "default": "'md'",
+      "mutable": false,
+      "end_line": 113
+    },
+    {
+      "name": "format",
+      "type": "| 'yyyy-mm-dd'     | 'dd-mm-yyyy'     | 'yyyy/mm/dd'     | 'dd/mm/yyyy'     | 'MMM DD, YYYY'",
+      "description": "The date format for display and input.",
+      "default": "'dd-mm-yyyy'",
+      "mutable": false,
+      "end_line": 121
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "The value of the control.",
+      "default": "''",
+      "mutable": true,
+      "end_line": 124
+    },
+    {
+      "name": "weekStartDay",
+      "type": "WeekStartDay",
+      "description": "The first day of the week for the calendar display",
+      "default": "'sunday'",
+      "mutable": false,
+      "end_line": 127
+    }
+  ],
+  "events": [
+    {
+      "name": "inputBlur",
+      "detail": "FocusEvent",
+      "description": "Event emitted when the input loses focus.",
+      "end_line": 130
+    },
+    {
+      "name": "inputChange",
+      "detail": "InputEvent",
+      "description": "Event emitted when the input value changes.",
+      "end_line": 133
+    },
+    {
+      "name": "inputFocus",
+      "detail": "FocusEvent",
+      "description": "Event emitted when the input gains focus.",
+      "end_line": 136
+    },
+    {
+      "name": "calendarMonthChange",
+      "detail": "number",
+      "description": "Event emitted when the calendar month selection changes.",
+      "end_line": 139
+    },
+    {
+      "name": "calendarYearChange",
+      "detail": "number",
+      "description": "Event emitted when the calendar year selection changes.",
+      "end_line": 142
+    }
+  ],
+  "methods": [],
+  "slots": [],
+  "examples": {
+    "basic": "<style>\n        div[id^='story--components-forms-date--default'] {\n          min-height: 400px;\n        }\n      </style>\n      <modus-wc-date\n        aria-label=\"Date input\"\n        ?bordered=${args.bordered}\n        custom-class=${ifDefined(args['custom-class'])}\n        ?disabled=${args.disabled}\n        .feedback=${args.feedback}\n        format=${ifDefined(args.format)}\n        input-id=${ifDefined(args['input-id'])}\n        input-tab-index=${ifDefined(args['input-tab-index'])}\n        label=${ifDefined(args.label)}\n        max=${ifDefined(args.max)}\n        min=${ifDefined(args.min)}\n        name=${ifDefined(args.name)}\n        placeholder=${ifDefined(args.placeholder)}\n        ?read-only=${args['read-only']}\n        ?required=${args.required}\n        size=${ifDefined(args.size)}\n        .value=${args.value}\n        week-start-day=${ifDefined(args['week-start-day'])}\n      ></modus-wc-date>",
+    "variations": [],
+    "args": {
+      "bordered": "true",
+      "class": "''",
+      "disabled": "false",
+      "label": "'Label'",
+      "only": "false",
+      "required": "false",
+      "size": "'md'",
+      "value": "''",
+      "day": "'sunday'"
+    },
+    "argTypes": {},
+    "usage": [],
+    "events": [
+      "inputBlur",
+      "inputChange",
+      "inputFocus",
+      "calendarMonthChange",
+      "calendarYearChange",
+      ""
+    ]
+  },
+  "scripts": [
+    {
+      "title": "Basic Usage",
+      "code": "<modus-wc-date feedback=\"example-feedback\" inputId=\"example-inputId\" inputTabIndex=\"example-inputTabIndex\" label=\"example-label\" max=\"example-max\" min=\"example-min\" name=\"example-name\"></modus-wc-date>",
+      "description": "Minimal required properties"
+    },
+    {
+      "title": "Event Handling",
+      "code": "<modus-wc-date onInputBlur={(e) => handleInputBlur(e.detail)} onInputChange={(e) => handleInputChange(e.detail)} onInputFocus={(e) => handleInputFocus(e.detail)} onCalendarMonthChange={(e) => handleCalendarMonthChange(e.detail)} onCalendarYearChange={(e) => handleCalendarYearChange(e.detail)}></modus-wc-date>",
+      "description": "Handling component events"
+    }
+  ],
+  "tag": "modus-wc-date",
+  "storyExample": {
+    "template": "<style>\n        div[id^='story--components-forms-date--default'] {\n          min-height: 400px;\n        }\n      </style>\n      <modus-wc-date\n        aria-label=\"Date input\"\n        ?bordered=${args.bordered}\n        custom-class=${ifDefined(args['custom-class'])}\n        ?disabled=${args.disabled}\n        .feedback=${args.feedback}\n        format=${ifDefined(args.format)}\n        input-id=${ifDefined(args['input-id'])}\n        input-tab-index=${ifDefined(args['input-tab-index'])}\n        label=${ifDefined(args.label)}\n        max=${ifDefined(args.max)}\n        min=${ifDefined(args.min)}\n        name=${ifDefined(args.name)}\n        placeholder=${ifDefined(args.placeholder)}\n        ?read-only=${args['read-only']}\n        ?required=${args.required}\n        size=${ifDefined(args.size)}\n        .value=${args.value}\n        week-start-day=${ifDefined(args['week-start-day'])}\n      ></modus-wc-date>",
+    "args": {
+      "bordered": "true",
+      "class": "''",
+      "disabled": "false",
+      "label": "'Label'",
+      "only": "false",
+      "required": "false",
+      "size": "'md'",
+      "value": "''",
+      "day": "'sunday'"
+    },
+    "argTypes": {},
+    "events": [
+      "inputBlur",
+      "inputChange",
+      "inputFocus",
+      "calendarMonthChange",
+      "calendarYearChange",
+      ""
+    ],
+    "fullContent": "import { withActions } from '@storybook/addon-actions/decorator';\nimport { Meta, StoryObj } from '@storybook/web-components';\nimport { html } from 'lit';\nimport { ifDefined } from 'lit/directives/if-defined.js';\nimport { IInputFeedbackProp, ModusSize } from '../types';\nimport { WeekStartDay } from '../types';\n\ninterface DateArgs {\n  bordered?: boolean;\n  'custom-class'?: string;\n  disabled?: boolean;\n  feedback?: IInputFeedbackProp;\n  format?:\n    | 'yyyy-mm-dd'\n    | 'dd-mm-yyyy'\n    | 'MMM DD, YYYY'\n    | 'yyyy/mm/dd'\n    | 'dd/mm/yyyy';\n  'input-id'?: string;\n  'input-tab-index'?: number;\n  label?: string;\n  max?: string;\n  min?: string;\n  name?: string;\n  placeholder?: string;\n  'read-only'?: boolean;\n  required?: boolean;\n  size?: ModusSize;\n  value: string;\n  'week-start-day'?: WeekStartDay;\n}\n\nconst meta: Meta<DateArgs> = {\n  title: 'Components/Forms/Date',\n  component: 'modus-wc-date',\n  args: {\n    bordered: true,\n    'custom-class': '',\n    disabled: false,\n    label: 'Label',\n    'read-only': false,\n    required: false,\n    size: 'md',\n    value: '',\n    'week-start-day': 'sunday',\n  },\n  argTypes: {\n    feedback: {\n      description: 'Feedback prop for input components',\n      table: {\n        type: {\n          detail: `\n            Interface: IInputFeedbackProp\n            Properties:\n            - level ('error' | 'info' | 'success' | 'warning'): The feedback level\n            - message (string, optional): The feedback message\n          `,\n        },\n      },\n    },\n    size: {\n      control: { type: 'select' },\n      options: ['sm', 'md', 'lg'],\n    },\n    format: {\n      control: { type: 'select' },\n      options: [\n        'yyyy-mm-dd',\n        'dd-mm-yyyy',\n        'MMM DD, YYYY',\n        'yyyy/mm/dd',\n        'dd/mm/yyyy',\n      ],\n    },\n    'week-start-day': {\n      control: { type: 'select' },\n      options: [\n        'sunday',\n        'monday',\n        'tuesday',\n        'wednesday',\n        'thursday',\n        'friday',\n        'saturday',\n      ],\n    },\n  },\n  decorators: [withActions],\n  parameters: {\n    actions: {\n      handles: [\n        'inputBlur',\n        'inputChange',\n        'inputFocus',\n        'calendarMonthChange',\n        'calendarYearChange',\n      ],\n    },\n  },\n};\n\nexport default meta;\n\ntype Story = StoryObj<DateArgs>;\n\nexport const Default: Story = {\n  render: (args) => {\n    return html`\n      <style>\n        div[id^='story--components-forms-date--default'] {\n          min-height: 400px;\n        }\n      </style>\n      <modus-wc-date\n        aria-label=\"Date input\"\n        ?bordered=${args.bordered}\n        custom-class=${ifDefined(args['custom-class'])}\n        ?disabled=${args.disabled}\n        .feedback=${args.feedback}\n        format=${ifDefined(args.format)}\n        input-id=${ifDefined(args['input-id'])}\n        input-tab-index=${ifDefined(args['input-tab-index'])}\n        label=${ifDefined(args.label)}\n        max=${ifDefined(args.max)}\n        min=${ifDefined(args.min)}\n        name=${ifDefined(args.name)}\n        placeholder=${ifDefined(args.placeholder)}\n        ?read-only=${args['read-only']}\n        ?required=${args.required}\n        size=${ifDefined(args.size)}\n        .value=${args.value}\n        week-start-day=${ifDefined(args['week-start-day'])}\n      ></modus-wc-date>\n    `;\n  },\n};\n\nconst errorFeedback: IInputFeedbackProp = {\n  level: 'error',\n  message: 'Value is required.',\n};\n\nexport const WithErrorFeedback: Story = {\n  render: (args) => html`\n    <style>\n      div[id^='story--components-forms-date--with-error-feedback'] {\n        min-height: 400px;\n      }\n    </style>\n    <modus-wc-date\n      aria-label=\"Date input\"\n      .feedback=${errorFeedback}\n      label=${ifDefined(args.label)}\n      ?required=${true}\n      .value=${args.value}\n      week-start-day=${ifDefined(args['week-start-day'])}\n    ></modus-wc-date>\n  `,\n};\n\nexport const Migration: Story = {\n  parameters: {\n    docs: {\n      description: {\n        story: `\n#### Breaking Changes\n\n  - In 1.0 input state was maintained by the component. 2.0 components encourage users to follow a controlled\n  input model. See the Form Inputs [documentation]([Angular](?path=/docs/documentation-form-inputs--docs) for\n  additional info and examples.\n  - Size values have changed from verbose names (\\`medium\\`, \\`large\\`) to abbreviations (\\`sm\\`, \\`md\\`, \\`lg\\`).\n\n#### Prop Mapping\n\n| 1.0 Prop           | 2.0 Prop         | Notes                                   |\n|--------------------|------------------|-----------------------------------------|\n| allow-chars-regex  |                  | Not carried over                        |\n| alt-formats        |                  | Not carried over                        |\n| aria-label         | aria-label       |                                         |\n| auto-focus-input   |                  | Not carried over                        |\n| disabled           | disabled         |                                         |\n| disable-validation |                  | Not carried over                        |\n| error-text         | feedback.message | Use \\`feedback\\` level                  |\n| filler-date        |                  | Not carried over                        |\n| format             | format           |                                         |\n| helper-text        |                  | Not carried over                        |\n| label              | label            |                                         |\n| max                | max              |                                         |\n| min                | min              |                                         |\n| placeholder        |                  | Not carried over                        |\n| read-only          | read-only        |                                         |\n| required           | required         |                                         |\n| show-calendar-icon |                  | Not carried over                        |\n| size               | size             | \\`medium\\` \u2192 \\`md\\`, \\`large\\` \u2192 \\`lg\\` |\n| type               |                  | Not carried over                        |\n| valid-text         | feedback.message | Use \\`feedback\\` level                  |\n| value              | value            |                                         |\n\n#### Event Mapping\n\n| 1.0 Event           | 2.0 Event   | Notes            |\n|---------------------|-------------|------------------|\n| calendarIconClicked |             | Not carried over |\n| dateInputBlur       | inputBlur   |                  |\n| valueChange         | inputChange |                  |\n| valueError          |             | Not carried over |\n        `,\n      },\n    },\n    controls: { disable: true },\n    canvas: { disable: true },\n  },\n  render: () => html`<div></div>`,\n};\n"
+  }
+}

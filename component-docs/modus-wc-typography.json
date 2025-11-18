@@ -1,0 +1,75 @@
+{
+  "description": "A customizable typography component used to render text with different sizes, hierarchy, and weights. Note: When using heading elements (h1-h6), the default heading CSS styling can be accessed without modifying the default size (size=\"md\") and weight (weight=\"normal\") properties. Default styling can be overridden by providing your own custom values for the size or weight properties from the available options.",
+  "properties": [
+    {
+      "name": "customClass",
+      "type": "string",
+      "description": "Custom CSS class to apply to the typography element.",
+      "default": "''",
+      "mutable": false,
+      "end_line": 29
+    },
+    {
+      "name": "hierarchy",
+      "type": "TypographyHierarchy",
+      "description": "The hierarchy of the typography component.",
+      "default": "'p'",
+      "mutable": false,
+      "end_line": 32
+    },
+    {
+      "name": "size",
+      "type": "TypographySize",
+      "description": "The size of the font.",
+      "default": "'md'",
+      "mutable": false,
+      "end_line": 35
+    },
+    {
+      "name": "weight",
+      "type": "TypographyWeight",
+      "description": "The weight of the text.",
+      "default": "'normal'",
+      "mutable": false,
+      "end_line": 38
+    }
+  ],
+  "events": [],
+  "methods": [],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Slot for default content"
+    }
+  ],
+  "examples": {
+    "basic": "<modus-wc-typography\n  custom-class=${ifDefined(args['custom-class'])}\n  hierarchy=${args.hierarchy}\n  size=${ifDefined(args.size)}\n  weight=${ifDefined(args.weight)}\n  ></modus-wc-typography>",
+    "variations": [],
+    "args": {
+      "hierarchy": "'p'",
+      "size": "'md'",
+      "weight": "'normal'"
+    },
+    "argTypes": {},
+    "usage": []
+  },
+  "scripts": [
+    {
+      "title": "Basic Usage",
+      "code": "<modus-wc-typography ></modus-wc-typography>",
+      "description": "Minimal required properties"
+    }
+  ],
+  "tag": "modus-wc-typography",
+  "storyExample": {
+    "template": "<modus-wc-typography\n  custom-class=${ifDefined(args['custom-class'])}\n  hierarchy=${args.hierarchy}\n  size=${ifDefined(args.size)}\n  weight=${ifDefined(args.weight)}\n  ></modus-wc-typography>",
+    "args": {
+      "hierarchy": "'p'",
+      "size": "'md'",
+      "weight": "'normal'"
+    },
+    "argTypes": {},
+    "events": [],
+    "fullContent": "import { Meta, StoryObj } from '@storybook/web-components';\nimport { html, render } from 'lit';\nimport { ifDefined } from 'lit/directives/if-defined.js';\nimport {\n  TypographyHierarchy,\n  TypographySize,\n  TypographyWeight,\n} from './modus-wc-typography';\n\n// Slot content was lost due to rendering issues when changing the \"variant\" attribute.\n// Because of this, each variant is rendered as a unique story below.\n\nconst content = 'The quick brown fox jumps over the lazy dog';\n\ninterface TypographyArgs {\n  'custom-class'?: string;\n  hierarchy: TypographyHierarchy;\n  size?: TypographySize;\n  weight?: TypographyWeight;\n}\n\nconst meta: Meta<TypographyArgs> = {\n  title: 'Components/Typography',\n  component: 'modus-wc-typography',\n  args: {\n    hierarchy: 'p',\n    size: 'md',\n    weight: 'normal',\n  },\n  argTypes: {\n    hierarchy: {\n      control: { type: 'select' },\n      options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'],\n    },\n    size: {\n      control: { type: 'select' },\n      options: [\n        'xs',\n        'sm',\n        'md',\n        'lg',\n        'xl',\n        '2xl',\n        '3xl',\n        '4xl',\n        '5xl',\n        '6xl',\n        '7xl',\n        '8xl',\n        '9xl',\n      ],\n    },\n    weight: {\n      control: { type: 'select' },\n      options: ['light', 'normal', 'semibold', 'bold'],\n    },\n  },\n  decorators: [\n    (story) => {\n      // Create a stable container that won't be recreated on re-renders\n      const container = document.createElement('div');\n      const template = document.createElement('template');\n      template.innerHTML = content;\n\n      const renderStory = () => {\n        render(story(), container);\n\n        // Ensure slot content is present after render\n        const typography = container.querySelector('modus-wc-typography');\n        if (typography && !typography.textContent) {\n          typography.textContent = template.innerHTML;\n        }\n      };\n\n      renderStory();\n      return container;\n    },\n  ],\n};\n\nexport default meta;\n\ntype Story = StoryObj<TypographyArgs>;\n\nconst Template: Story = {\n  render: (args) => {\n    // prettier-ignore\n    return html`\n<modus-wc-typography\n  custom-class=${ifDefined(args['custom-class'])}\n  hierarchy=${args.hierarchy}\n  size=${ifDefined(args.size)}\n  weight=${ifDefined(args.weight)}\n  ></modus-wc-typography>\n   `;\n  },\n};\n\nexport const Default: Story = { ...Template };\n\nexport const Heading1: Story = { ...Template, args: { hierarchy: 'h1' } };\n\nexport const Heading2: Story = { ...Template, args: { hierarchy: 'h2' } };\n\nexport const Heading3: Story = { ...Template, args: { hierarchy: 'h3' } };\n\nexport const Heading4: Story = { ...Template, args: { hierarchy: 'h4' } };\n\nexport const Heading5: Story = { ...Template, args: { hierarchy: 'h5' } };\n\nexport const Heading6: Story = { ...Template, args: { hierarchy: 'h6' } };\n\nexport const Paragraph: Story = { ...Template, args: { hierarchy: 'p' } };\n"
+  }
+}

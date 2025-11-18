@@ -1,0 +1,91 @@
+{
+  "description": "A customizable input label component. The component supports a `<slot>` for injecting additional custom content inside the label, such as icons or formatted text",
+  "properties": [
+    {
+      "name": "forId",
+      "type": "string",
+      "description": "The `for` attribute of the label, matching the `id` of the associated input.",
+      "default": null,
+      "mutable": false,
+      "end_line": 21
+    },
+    {
+      "name": "customClass",
+      "type": "string",
+      "description": "Additional classes for custom styling.",
+      "default": "''",
+      "mutable": false,
+      "end_line": 24
+    },
+    {
+      "name": "labelText",
+      "type": "string",
+      "description": "The text to display within the label.",
+      "default": null,
+      "mutable": false,
+      "end_line": 27
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "description": "Whether the label indicates a required field.",
+      "default": "false",
+      "mutable": false,
+      "end_line": 30
+    },
+    {
+      "name": "size",
+      "type": "ModusSize",
+      "description": "The size of the label.",
+      "default": "'md'",
+      "mutable": false,
+      "end_line": 33
+    },
+    {
+      "name": "subLabelText",
+      "type": "string",
+      "description": "The text rendered beneath the label.",
+      "default": null,
+      "mutable": false,
+      "end_line": 36
+    }
+  ],
+  "events": [],
+  "methods": [],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Slot for default content"
+    }
+  ],
+  "examples": {
+    "basic": null,
+    "variations": [],
+    "args": {
+      "text": "'Label'",
+      "required": "false",
+      "size": "'md'"
+    },
+    "argTypes": {},
+    "usage": []
+  },
+  "scripts": [
+    {
+      "title": "Basic Usage",
+      "code": "<modus-wc-input-label forId=\"example-forId\" labelText=\"example-labelText\" subLabelText=\"example-subLabelText\"></modus-wc-input-label>",
+      "description": "Minimal required properties"
+    }
+  ],
+  "tag": "modus-wc-input-label",
+  "storyExample": {
+    "template": null,
+    "args": {
+      "text": "'Label'",
+      "required": "false",
+      "size": "'md'"
+    },
+    "argTypes": {},
+    "events": [],
+    "fullContent": "import { Meta, StoryObj } from '@storybook/web-components';\nimport { html } from 'lit';\nimport { ifDefined } from 'lit/directives/if-defined.js';\nimport { ModusSize } from '../types';\n\ninterface InputLabelArgs {\n  'for-id'?: string;\n  'custom-class'?: string;\n  'label-text'?: string;\n  required?: boolean;\n  size?: ModusSize;\n  'sub-label-text'?: string;\n}\n\nconst meta: Meta<InputLabelArgs> = {\n  title: 'Components/Forms/Input Label',\n  component: 'modus-wc-input-label',\n  args: {\n    'label-text': 'Label',\n    required: false,\n    size: 'md',\n  },\n  argTypes: {\n    size: {\n      control: { type: 'select' },\n      options: ['sm', 'md', 'lg'],\n    },\n  },\n};\n\nexport default meta;\n\ntype Story = StoryObj<InputLabelArgs>;\n\nconst Template: Story = {\n  render: (args) => html`\n    <modus-wc-input-label\n      for-id=${ifDefined(args['for-id'])}\n      custom-class=${ifDefined(args['custom-class'])}\n      label-text=${ifDefined(args['label-text'])}\n      ?required=${args['required']}\n      size=${args.size}\n      sub-label-text=${ifDefined(args['sub-label-text'])}\n    ></modus-wc-input-label>\n  `,\n};\n\nexport const Default: Story = { ...Template };\n\nexport const Required: Story = { ...Template, args: { required: true } };\n"
+  }
+}

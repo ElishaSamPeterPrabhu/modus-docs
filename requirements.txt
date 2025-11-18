@@ -1,0 +1,22 @@
+# Core MCP and FastAPI dependencies
+mcp>=1.0.0
+fastapi>=0.104.0
+uvicorn>=0.24.0
+
+# HTTP client for Figma API
+httpx>=0.25.0
+
+# Data validation and environment management
+pydantic>=2.5.0
+python-dotenv>=1.0.0
+
+# Type hints (for older Python versions)
+typing-extensions>=4.8.0
+
+# Logging and debugging
+rich>=13.0.0
+
+# Optional: Development dependencies
+# pytest>=7.4.0
+# black>=23.0.0
+# flake8>=6.0.0 
