@@ -167,5 +167,5 @@ def get_modus_component_data(component_name: str) -> str:
 
 
 if __name__ == "__main__":
-    mcp.run()
+    mcp.run(transport="http", port=8080)
 
