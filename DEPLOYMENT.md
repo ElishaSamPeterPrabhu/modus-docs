@@ -19,14 +19,14 @@ This guide explains how to deploy the Modus Docs MCP server to FastMCP Cloud.
 
 ### Step 3: Get Your Server URL
 
-After deployment, FastMCP Cloud will provide you with a URL like:
+✅ **DEPLOYED!** Your server is live at:
 ```
-https://your-project.fastmcp.app/mcp
+https://clumsy-amaranth-stork.fastmcp.app/mcp
 ```
 
-### Step 4: Configure MCP Client
+### Step 4: Configure MCP Client with Authentication
 
-Update your `~/.cursor/mcp.json` or Claude Desktop config with:
+FastMCP Cloud requires authentication. Get your API token from the dashboard and update your `~/.cursor/mcp.json`:
 
 ```json
 {
@@ -36,12 +36,23 @@ Update your `~/.cursor/mcp.json` or Claude Desktop config with:
       "args": [
         "-y",
         "mcp-remote",
-        "https://your-project.fastmcp.app/mcp"
-      ]
+        "https://clumsy-amaranth-stork.fastmcp.app/mcp",
+        "--header",
+        "Authorization: Bearer ${FASTMCP_TOKEN}"
+      ],
+      "env": {
+        "FASTMCP_TOKEN": "YOUR_TOKEN_FROM_FASTMCP_CLOUD_DASHBOARD"
+      }
     }
   }
 }
 ```
+
+**To get your token:**
+1. Visit https://fastmcp.cloud
+2. Go to your project: "clumsy-amaranth-stork"
+3. Find "API Keys" or "Settings" → "Authentication"
+4. Copy the token and paste it in the config above
 
 ## 🧪 Testing Your Deployed Server
 
