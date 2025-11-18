@@ -1,9 +1,5 @@
 # Core MCP and FastAPI dependencies
-mcp>=1.0.0
-fastmcp>=2.0.0
-fastapi>=0.104.0
-uvicorn>=0.24.0
-
+fastmcp>=2.11.3
 # HTTP client for Figma API
 httpx>=0.25.0
 

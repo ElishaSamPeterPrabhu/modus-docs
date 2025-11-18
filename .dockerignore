@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Documentation (not needed in runtime)
+README.md
+CONTRIBUTING.md
+*.md
+!docs/**/*.md
+!docs/**/*.mdx
+
+# Scripts (not needed in runtime)
+scripts/
+
+# Setup files (not needed in runtime)
+setup.py
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Testing
+.pytest_cache/
+tests/
+test_*.py
+*_test.py
+
+# Misc
+.DS_Store
+*.log
+.env
+

@@ -48,21 +48,58 @@ modus-document-code/
 ### Installation
 
 1. **Clone the repository:**
+
    ```bash
    git clone https://github.com/your-username/modus-document-code.git
    cd modus-document-code
    ```
 
 2. **Install dependencies:**
+
    ```bash
    pip install -r requirements.txt
    ```
 
 3. **Update documentation (optional):**
+
    ```bash
    python scripts/update_modus_components.py
    python scripts/extract_all_docs.py
    ```
+
+## Running the Documentation Server
+
+To run the local documentation server:
+
+1. **Create a virtual environment:**
+
+   ```bash
+   python3 -m venv venv
+   ```
+
+2. **Activate the virtual environment:**
+
+   ```bash
+   # On macOS/Linux
+   source venv/bin/activate
+   
+   # On Windows
+   venv\Scripts\activate
+   ```
+
+3. **Install dependencies:**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Start the server:**
+
+   ```bash
+   python3 modus_docs_server.py
+   ```
+
+The server will start on `http://localhost:8000` by default.
 
 ## 📚 Documentation Overview
 
@@ -213,6 +250,47 @@ This project follows the same license as Modus Web Components - MIT License.
 - [Modus Web Components](https://github.com/trimble-oss/modus-wc-2.0)
 - [Modus Design System](https://modus.trimble.com/)
 - [Component Documentation](https://trimble-oss.github.io/modus-wc-2.0/main)
+
+## 🐳 Docker Support
+
+### Building the Docker Image
+
+```bash
+docker build -t modus-docs-server .
+```
+
+### Running the Container
+
+```bash
+# Run with default settings (port 8000)
+docker run -p 8000:8000 modus-docs-server
+
+# Run with custom port
+docker run -p 3000:3000 -e PORT=3000 modus-docs-server
+
+# Run in detached mode
+docker run -d -p 8000:8000 --name modus-docs modus-docs-server
+```
+
+### Environment Variables
+
+- `HOST` - Server host address (default: `0.0.0.0`)
+- `PORT` - Server port (default: `8000`)
+
+### Docker Compose Example
+
+```yaml
+version: '3.8'
+services:
+  modus-docs:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8000
+    restart: unless-stopped
+```
 
 ## 📞 Support
 
