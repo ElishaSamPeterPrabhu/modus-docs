@@ -12,7 +12,7 @@ import logging
 from pathlib import Path
 from typing import Any
 
-from mcp.server.fastmcp import FastMCP
+from fastmcp import FastMCP
 
 # Configure logging to stderr (NEVER use print() or stdout in MCP servers)
 logging.basicConfig(
@@ -167,6 +167,5 @@ def get_modus_component_data(component_name: str) -> str:
 
 
 if __name__ == "__main__":
-    # Run the FastMCP server
     mcp.run()
 
